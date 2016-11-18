@@ -9937,7 +9937,8 @@ checkFolder:
 
 	Private Sub CBMuteMedia_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CBMuteMedia.CheckedChanged
 
-		Form1.DomWMP.settings.mute = CBMuteMedia.Checked
+		'Linux Incompatible
+		'Form1.DomWMP.settings.mute = CBMuteMedia.Checked
 
 	End Sub
 

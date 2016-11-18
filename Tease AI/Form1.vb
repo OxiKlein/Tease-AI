@@ -793,7 +793,8 @@ ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCal
 		FrmSplash.LBLSplash.Text = "Configuring media player..."
 		FrmSplash.Refresh()
 
-		DomWMP.Height = SplitContainer1.Panel1.Height + 60
+		'Linux Incompatible
+		'DomWMP.Height = SplitContainer1.Panel1.Height + 60
 
 		If My.Settings.DomAVStretch = False Then domAvatar.SizeMode = PictureBoxSizeMode.Zoom
 		'If My.Settings.SubAvStretch = False Then subAvatar.SizeMode = PictureBoxSizeMode.Zoom
@@ -1880,8 +1881,9 @@ WritingTaskLine:
 				ssh.EdgeVideo = False
 				ssh.TeaseVideo = False
 				VideoTimer.Stop()
-				DomWMP.Visible = False
-				DomWMP.Ctlcontrols.stop()
+				'Linux Incompatible
+				'DomWMP.Visible = False
+				'DomWMP.Ctlcontrols.stop()
 				mainPictureBox.Visible = True
 				ssh.FileGoto = ssh.EdgeGotoLine
 				ssh.SkipGotoLine = True
@@ -1935,7 +1937,8 @@ WritingTaskLine:
 					Return
 				End If
 
-				DomWMP.Ctlcontrols.pause()
+				'Linux Incompatible
+				'DomWMP.Ctlcontrols.pause()
 
 				ssh.StrokeTauntVal = -1
 				ssh.FileText = ATEList(ssh.randomizer.Next(0, ATEList.Count))
@@ -2597,8 +2600,9 @@ EdgeSkip:
 				ssh.CameVideo = False
 				ssh.TeaseVideo = False
 				VideoTimer.Stop()
-				DomWMP.Visible = False
-				DomWMP.Ctlcontrols.stop()
+				'Linux Incompatible
+				'DomWMP.Visible = False
+				'DomWMP.Ctlcontrols.stop()
 				mainPictureBox.Visible = True
 				ssh.FileGoto = ssh.CameGotoLine
 				ssh.SkipGotoLine = True
@@ -2626,8 +2630,9 @@ EdgeSkip:
 				ssh.RuinedVideo = False
 				ssh.TeaseVideo = False
 				VideoTimer.Stop()
-				DomWMP.Visible = False
-				DomWMP.Ctlcontrols.stop()
+				'Linux Incompatible
+				'DomWMP.Visible = False
+				'DomWMP.Ctlcontrols.stop()
 				mainPictureBox.Visible = True
 				ssh.FileGoto = ssh.RuinedGotoLine
 				ssh.SkipGotoLine = True
@@ -2654,8 +2659,9 @@ EdgeSkip:
 				If ssh.Modes(CheckResponse).Type.ToUpper.Contains("VIDEO") Then
 					ssh.TeaseVideo = False
 					VideoTimer.Stop()
-					DomWMP.Visible = False
-					DomWMP.Ctlcontrols.stop()
+					'Linux Incompatible
+					'DomWMP.Visible = False
+					'DomWMP.Ctlcontrols.stop()
 					mainPictureBox.Visible = True
 					ssh.FileGoto = ssh.Modes(CheckResponse).GotoLine
 					ssh.SkipGotoLine = True
@@ -2704,8 +2710,9 @@ EdgeSkip:
 					ssh.YesVideo = False
 					ssh.TeaseVideo = False
 					VideoTimer.Stop()
-					DomWMP.Visible = False
-					DomWMP.Ctlcontrols.stop()
+					'Linux Incompatible
+					'DomWMP.Visible = False
+					'DomWMP.Ctlcontrols.stop()
 					mainPictureBox.Visible = True
 					ssh.FileGoto = ssh.YesGotoLine
 					ssh.SkipGotoLine = True
@@ -2772,8 +2779,9 @@ EdgeSkip:
 					ssh.NoVideo_Mode = False
 					ssh.TeaseVideo = False
 					VideoTimer.Stop()
-					DomWMP.Visible = False
-					DomWMP.Ctlcontrols.stop()
+					'Linux Incompatible
+					'DomWMP.Visible = False
+					'DomWMP.Ctlcontrols.stop()
 					mainPictureBox.Visible = True
 					ssh.FileGoto = ssh.NoGotoLine
 					ssh.SkipGotoLine = True
@@ -4194,7 +4202,8 @@ NonModuleEnd:
 					End If
 					ssh.HypnoGen = False
 					ssh.AFK = False
-					DomWMP.Ctlcontrols.stop()
+					'Linux Incompatible
+					'DomWMP.Ctlcontrols.stop()
 					BTNHypnoGenStart.Text = "Guide Me!"
 				End If
 				If ssh.ReturnFlag = True Then
@@ -5364,33 +5373,34 @@ DommeSlideshowFallback:
 					End If
 				End If
 
-				If ssh.RLGLGame = True And ssh.RedLight = False Then
-					If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPaused) Then
-						DomWMP.Ctlcontrols.play()
+				'Linux Incompatible
+				'If ssh.RLGLGame = True And ssh.RedLight = False Then
+				'If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPaused) Then
+				'		DomWMP.Ctlcontrols.play()
 
 
-						ssh.AskedToSpeedUp = False
-						ssh.AskedToSlowDown = False
-						ssh.SubStroking = True
-						ssh.SubEdging = False
-						ssh.SubHoldingEdge = False
-						StrokePace = ssh.randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
-						StrokePace = 50 * Math.Round(StrokePace / 50)
-						ssh.RLGLTauntTick = ssh.randomizer.Next(20, 31)
-						' VideoTauntTick = randomizer.Next(20, 31)
-						RLGLTauntTimer.Start()
-
-					End If
-				End If
-
-				If ssh.RLGLGame = True And ssh.RedLight = True Then
-					If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
-						DomWMP.Ctlcontrols.pause()
-						ssh.SubStroking = False
-						StrokePace = 0
-						'VideoTauntTimer.Stop()
-					End If
-				End If
+				'		ssh.AskedToSpeedUp = False
+				'		ssh.AskedToSlowDown = False
+				'		ssh.SubStroking = True
+				'		ssh.SubEdging = False
+				'		ssh.SubHoldingEdge = False
+				'		StrokePace = ssh.randomizer.Next(NBMaxPace.Value, NBMinPace.Value + 1)
+				'		StrokePace = 50 * Math.Round(StrokePace / 50)
+				'		ssh.RLGLTauntTick = ssh.randomizer.Next(20, 31)
+				'		' VideoTauntTick = randomizer.Next(20, 31)
+				'		RLGLTauntTimer.Start()
+				'
+				'	End If
+				'End If
+				'
+				'If ssh.RLGLGame = True And ssh.RedLight = True Then
+				'	If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
+				'		DomWMP.Ctlcontrols.pause()
+				'		ssh.SubStroking = False
+				'		StrokePace = 0
+				'		'VideoTauntTimer.Stop()
+				'	End If
+				'End If
 
 
 
@@ -6225,8 +6235,9 @@ chooseComboboxText:
 			ElseIf Not isURL(GetFolder) Then
 				ImageFolderComboBox.Enabled = False
 
-				DomWMP.Visible = False
-				DomWMP.Ctlcontrols.pause()
+				'Linux Incompatible
+				'DomWMP.Visible = False
+				'DomWMP.Ctlcontrols.pause()
 				mainPictureBox.Visible = True
 
 				FrmSettings.timedRadio.Enabled = True
@@ -6261,8 +6272,9 @@ chooseComboboxText:
 					tmpReq.Abort()
 					tmpRes.Close()
 
-					DomWMP.Visible = False
-					DomWMP.Ctlcontrols.pause()
+					'Linux Incompatible
+					'DomWMP.Visible = False
+					'DomWMP.Ctlcontrols.pause()
 					mainPictureBox.Visible = True
 
 					FrmSettings.timedRadio.Enabled = True
@@ -6407,8 +6419,9 @@ Retry:
 
 
 
-			DomWMP.Visible = True
-			DomWMP.stretchToFit = True
+			'Linux Incompatible
+			'DomWMP.Visible = True
+			'DomWMP.stretchToFit = True
 
 			' domVLC.Visible = True
 			'SlideshowLoaded = False
@@ -6428,26 +6441,28 @@ Retry:
 			'If FrmSettings.VLC1610Radio.Checked = True Then domVLC.video.crop = "16:10"
 			' If FrmSettings.VLC169Radio.Checked = True Then domVLC.video.crop = "16:9"
 
-			DomWMP.URL = OpenFileDialog2.FileName
+			'Linux Incompatible
+			'DomWMP.URL = OpenFileDialog2.FileName
 
 		End If
 	End Sub
 
 
 
-	Private Sub BTNVideoControls_Click(sender As System.Object, e As System.EventArgs) Handles BTNVideoControls.Click
-
-		If DomWMP.Height = SplitContainer1.Panel1.Height Then
-			DomWMP.Height = SplitContainer1.Panel1.Height + 60
-			BTNVideoControls.Text = "Show Video Controls"
-		Else
-			DomWMP.Height = SplitContainer1.Panel1.Height
-			BTNVideoControls.Text = "Hide Video Controls"
-		End If
-
-		DomWMP.stretchToFit = True
-
-	End Sub
+	'Linux Incompatible
+	'Private Sub BTNVideoControls_Click(sender As System.Object, e As System.EventArgs) Handles BTNVideoControls.Click
+	'
+	'	If DomWMP.Height = SplitContainer1.Panel1.Height Then
+	'		DomWMP.Height = SplitContainer1.Panel1.Height + 60
+	'		BTNVideoControls.Text = "Show Video Controls"
+	'	Else
+	'		DomWMP.Height = SplitContainer1.Panel1.Height
+	'		BTNVideoControls.Text = "Hide Video Controls"
+	'	End If
+	'
+	'	DomWMP.stretchToFit = True
+	'
+	'End Sub
 
 
 
@@ -6971,8 +6986,9 @@ GetAnotherRandomVideo:
 		'Debug.Print("VideoType = " & VideoType)
 
 		'        domVLC.Visible = True
-		DomWMP.Visible = True
-		DomWMP.stretchToFit = True
+		'Linux Incompatible
+		'DomWMP.Visible = True
+		'DomWMP.stretchToFit = True
 
 		' programsettingsPanel.Visible = False
 		mainPictureBox.Visible = False
@@ -6988,18 +7004,20 @@ GetAnotherRandomVideo:
 		'If FrmSettings.VLC1610Radio.Checked = True Then domVLC.video.crop = "16:10"
 		'If FrmSettings.VLC169Radio.Checked = True Then domVLC.video.crop = "16:9"
 
-		DomWMP.URL = __domVideo
+		'Linux Incompatible
+		'DomWMP.URL = __domVideo
 
 
 
-		If ssh.JumpVideo = True Then
-			Do
-				Application.DoEvents()
-			Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
+		'Linux Incompatible
+		'If ssh.JumpVideo = True Then
+		'	Do
+		'		Application.DoEvents()
+		'	Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
 
-			VideoJump2Random(Nothing, Nothing)
+		'	VideoJump2Random(Nothing, Nothing)
 
-		End If
+		'End If
 
 		ssh.JumpVideo = False
 	End Sub
@@ -7033,12 +7051,14 @@ GetAnotherRandomVideo:
 
 		Dim JOIVideoLine As Integer = ssh.randomizer.Next(0, JOIVideos.Count)
 
-		DomWMP.Visible = True
-		DomWMP.stretchToFit = True
+		'Linux Incompatible
+		'DomWMP.Visible = True
+		'DomWMP.stretchToFit = True
 
 		mainPictureBox.Visible = False
 
-		DomWMP.URL = JOIVideos(JOIVideoLine)
+		'Linux Incompatible
+		'DomWMP.URL = JOIVideos(JOIVideoLine)
 
 
 	End Sub
@@ -7067,12 +7087,13 @@ GetAnotherRandomVideo:
 
 		Dim CHVideoLine As Integer = ssh.randomizer.Next(0, CHVideos.Count)
 
-		DomWMP.Visible = True
-		DomWMP.stretchToFit = True
+		'Linux Incompatible
+		'DomWMP.Visible = True
+		'DomWMP.stretchToFit = True
 
 		mainPictureBox.Visible = False
 
-		DomWMP.URL = CHVideos(CHVideoLine)
+		'DomWMP.URL = CHVideos(CHVideoLine)
 
 
 	End Sub
@@ -7135,19 +7156,21 @@ CensorConstant:
 				Dim CensorshipBarY As Integer
 				Dim CensorshipBarY2 As Integer
 
-				Try
-					CensorshipBarY2 = ssh.randomizer.Next(200, DomWMP.Height / 2)
-				Catch
-					CensorshipBarY2 = 100
-				End Try
+				'Linux Incompatible
+				'Try
+				'	CensorshipBarY2 = ssh.randomizer.Next(200, DomWMP.Height / 2)
+				'Catch
+				'	CensorshipBarY2 = 100
+				'End Try
 
 				CensorshipBar.Height = CensorshipBarY2
 				CensorshipBar.Width = CensorshipBarY2 * 2.6
 
 				'QnD-BUGFIX: if CensorshipBar.Width > DomWMP.Width then ArgumentOutOfRangeException 
-				CensorshipBarX = ssh.randomizer.Next(5, If(CensorshipBar.Width > DomWMP.Width, DomWMP.Width, DomWMP.Width - CensorshipBar.Width + 1))
-				CensorshipBarY = ssh.randomizer.Next(5, If(CensorshipBar.Height > DomWMP.Height, DomWMP.Height, DomWMP.Height - CensorshipBar.Height + 1))
-				CensorshipBar.Location = New Point(CensorshipBarX, CensorshipBarY)
+				'Linux Incompatible
+				'CensorshipBarX = ssh.randomizer.Next(5, If(CensorshipBar.Width > DomWMP.Width, DomWMP.Width, DomWMP.Width - CensorshipBar.Width + 1))
+				'CensorshipBarY = ssh.randomizer.Next(5, If(CensorshipBar.Height > DomWMP.Height, DomWMP.Height, DomWMP.Height - CensorshipBar.Height + 1))
+				'CensorshipBar.Location = New Point(CensorshipBarX, CensorshipBarY)
 
 
 
@@ -8354,7 +8377,9 @@ StatusUpdateEnd:
 
 		Dim TagFilePath As String = Path.GetDirectoryName(slide.CurrentImage) & "\ImageTags.txt"
 
-		If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing And DomWMP.Visible = False) _
+		'Linux Incompatible
+		'If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing And DomWMP.Visible = False) _     ---->
+		If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing) _
 		AndAlso File.Exists(TagFilePath) Then
 			' Read all lines of the given file.
 			Dim TagList As List(Of String) = Txt2List(TagFilePath)
@@ -11519,7 +11544,8 @@ OrgasmDecided:
 		End If
 
 		If StringClean.Contains("@ResumeAvoidTheEdge") Then
-			DomWMP.Ctlcontrols.play()
+			'Linux Incompatible
+			'DomWMP.Ctlcontrols.play()
 			ScriptTimer.Stop()
 			ssh.AvoidTheEdgeStroking = True
 			ssh.SubStroking = True
@@ -11576,25 +11602,27 @@ OrgasmDecided:
 				VideoClean = VideoFlag
 
 				If File.Exists(VideoClean) Then
-					DomWMP.URL = VideoClean
-					DomWMP.Visible = True
+					'Linux Incompatible
+					'DomWMP.URL = VideoClean
+					'DomWMP.Visible = True
 					mainPictureBox.Visible = False
 					ssh.TeaseVideo = True
 
-					If ssh.JumpVideo = True Then
+					'Linux Incompatible
+					'If ssh.JumpVideo = True Then
 
-						Do
-							Application.DoEvents()
-						Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
+					'	Do
+					'		Application.DoEvents()
+					'	Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
 
-						Dim VideoLength As Integer = DomWMP.currentMedia.duration
-						Dim VidLow As Integer = VideoLength * 0.4
-						Dim VidHigh As Integer = VideoLength * 0.9
-						Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
+					'	Dim VideoLength As Integer = DomWMP.currentMedia.duration
+					'	Dim VidLow As Integer = VideoLength * 0.4
+					'	Dim VidHigh As Integer = VideoLength * 0.9
+					'	Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
 
-						DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
+					'	DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
 
-					End If
+					'End If
 
 					ssh.JumpVideo = False
 
@@ -11623,25 +11651,26 @@ OrgasmDecided:
 				Next
 
 				If VideoList.Count > 0 Then
-					DomWMP.URL = VideoList(ssh.randomizer.Next(0, VideoList.Count))
-					DomWMP.Visible = True
-					mainPictureBox.Visible = False
-					ssh.TeaseVideo = True
+					'Linux Incompatible
+					'DomWMP.URL = VideoList(ssh.randomizer.Next(0, VideoList.Count))
+					'DomWMP.Visible = True
+					'mainPictureBox.Visible = False
+					'ssh.TeaseVideo = True
 
-					If ssh.JumpVideo = True Then
+					'If ssh.JumpVideo = True Then
 
-						Do
-							Application.DoEvents()
-						Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
+					'	Do
+					'		Application.DoEvents()
+					'	Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
 
-						Dim VideoLength As Integer = DomWMP.currentMedia.duration
-						Dim VidLow As Integer = VideoLength * 0.4
-						Dim VidHigh As Integer = VideoLength * 0.9
-						Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
+					'	Dim VideoLength As Integer = DomWMP.currentMedia.duration
+					'	Dim VidLow As Integer = VideoLength * 0.4
+					'	Dim VidHigh As Integer = VideoLength * 0.9
+					'	Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
 
-						DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
+					'	DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
 
-					End If
+					'End If
 
 					ssh.JumpVideo = False
 				Else
@@ -11652,25 +11681,26 @@ OrgasmDecided:
 			Else
 
 				If File.Exists(VideoClean) Then
-					DomWMP.URL = VideoClean
-					DomWMP.Visible = True
-					mainPictureBox.Visible = False
-					ssh.TeaseVideo = True
+					'Linux Incompatible
+					'DomWMP.URL = VideoClean
+					'DomWMP.Visible = True
+					'mainPictureBox.Visible = False
+					'ssh.TeaseVideo = True
 
-					If ssh.JumpVideo = True Then
+					'If ssh.JumpVideo = True Then
 
-						Do
-							Application.DoEvents()
-						Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
+					'	Do
+					'		Application.DoEvents()
+					'	Loop Until (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying)
 
-						Dim VideoLength As Integer = DomWMP.currentMedia.duration
-						Dim VidLow As Integer = VideoLength * 0.4
-						Dim VidHigh As Integer = VideoLength * 0.9
-						Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
+					'	Dim VideoLength As Integer = DomWMP.currentMedia.duration
+					'	Dim VidLow As Integer = VideoLength * 0.4
+					'	Dim VidHigh As Integer = VideoLength * 0.9
+					'	Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
 
-						DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
+					'	DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
 
-					End If
+					'End If
 
 					ssh.JumpVideo = False
 
@@ -11696,7 +11726,8 @@ ExternalVideo:
 				AudioClean = AudioFlag
 
 				If File.Exists(AudioClean) Then
-					DomWMP.URL = AudioClean
+					'Linux Incompatible
+					'DomWMP.URL = AudioClean
 				Else
 					MessageBox.Show(Me, Path.GetFileName(AudioClean) & " was not found in " & Path.GetDirectoryName(AudioClean) & "!" & Environment.NewLine & Environment.NewLine &
 					 "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
@@ -11721,7 +11752,8 @@ ExternalVideo:
 				Next
 
 				If AudioList.Count > 0 Then
-					DomWMP.URL = AudioList(ssh.randomizer.Next(0, AudioList.Count))
+					'Linux Incompatible
+					'DomWMP.URL = AudioList(ssh.randomizer.Next(0, AudioList.Count))
 				Else
 					MessageBox.Show(Me, "No audio files matching " & Path.GetFileName(AudioClean) & " were found in " & Path.GetDirectoryName(AudioClean) & "!" & Environment.NewLine & Environment.NewLine &
 					  "Please make sure that valid files exist and that the wildcards are applied correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
@@ -11731,7 +11763,8 @@ ExternalVideo:
 
 
 				If File.Exists(AudioClean) Then
-					DomWMP.URL = AudioClean
+					'Linux Incompatible
+					'DomWMP.URL = AudioClean
 				Else
 					MessageBox.Show(Me, Path.GetFileName(AudioClean) & " was not found in " & Application.StartupPath & "\Audio!" & Environment.NewLine & Environment.NewLine &
 					 "Please make sure the file exists and that it is spelled correctly in the script.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand)
@@ -11799,19 +11832,20 @@ ExternalAudio:
 
 		If StringClean.Contains("@JumpVideo") Then
 
-			If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
-				Dim VideoLength As Integer = DomWMP.currentMedia.duration
-				Dim VidLow As Integer = VideoLength * 0.4
-				Dim VidHigh As Integer = VideoLength * 0.9
-				Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
+			'Linux Incompatible
+			'If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
+			'	Dim VideoLength As Integer = DomWMP.currentMedia.duration
+			'	Dim VidLow As Integer = VideoLength * 0.4
+			'	Dim VidHigh As Integer = VideoLength * 0.9
+			'	Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
 
-				Debug.Print("VidLow = " & VidLow)
-				Debug.Print("VidHigh = " & VidHigh)
-				Debug.Print("VidPoint = " & VidPoint)
+			'	Debug.Print("VidLow = " & VidLow)
+			'	Debug.Print("VidHigh = " & VidHigh)
+			'	Debug.Print("VidPoint = " & VidPoint)
 
-				DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
+			'	DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
 
-			End If
+			'End If
 			StringClean = StringClean.Replace("@JumpVideo", "")
 		End If
 
@@ -12301,9 +12335,10 @@ VTSkip:
 
 		If StringClean.Contains("@RiskyPayout") Then
 			If FrmSettings.CBGameSounds.Checked = True And File.Exists(Application.StartupPath & "\Audio\System\PayoutSmall.wav") Then
-				FrmCardList.GameWMP.settings.setMode("loop", False)
-				FrmCardList.GameWMP.settings.volume = 20
-				FrmCardList.GameWMP.URL = Application.StartupPath & "\Audio\System\PayoutSmall.wav"
+				'Linux Incompatible
+				'FrmCardList.GameWMP.settings.setMode("loop", False)
+				'FrmCardList.GameWMP.settings.volume = 20
+				'FrmCardList.GameWMP.URL = Application.StartupPath & "\Audio\System\PayoutSmall.wav"
 			End If
 			ssh.BronzeTokens += FrmCardList.TokensPaid
 			FrmCardList.LBLRiskTokens.Text = ssh.BronzeTokens
@@ -12931,7 +12966,8 @@ VTSkip:
 		If StringClean.Contains("@UnlockVideo") Then
 			ssh.LockVideo = False
 			mainPictureBox.Visible = True
-			DomWMP.Visible = False
+			'Linux Incompatible
+			'DomWMP.Visible = False
 			StringClean = StringClean.Replace("@UnlockVideo", "")
 		End If
 
@@ -13883,7 +13919,8 @@ Skip_RandomFile:
 
 		Dim TagFilePath As String = Path.GetDirectoryName(slide.CurrentImage) & "\ImageTags.txt"
 
-		If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing And DomWMP.Visible = False) _
+		'If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing And DomWMP.Visible = False) _     --->
+		If (ssh.SlideshowLoaded = True And mainPictureBox.Image IsNot Nothing) _
 		AndAlso File.Exists(TagFilePath) Then
 			Try
 				Dim TagList As List(Of String) = Txt2List(TagFilePath)
@@ -15074,7 +15111,8 @@ SkipTextedTags:
 			ssh.SkipGotoLine = True
 			GetGoto()
 			'domVLC.playlist.play()
-			DomWMP.Ctlcontrols.play()
+			'Linux Incompatible
+			'DomWMP.Ctlcontrols.play()
 			HandleScripts()
 			ScriptTimer.Start()
 
@@ -15095,11 +15133,13 @@ SkipTextedTags:
 
 
 		If mainPictureBox.Visible = True Then
-			DomWMP.Visible = True
+			'Linux Incompatible
+			'DomWMP.Visible = True
 			mainPictureBox.Visible = False
 		Else
 			mainPictureBox.Visible = True
-			DomWMP.Visible = False
+			'Linux Incompatible
+			'DomWMP.Visible = False
 		End If
 
 	End Sub
@@ -16440,192 +16480,194 @@ RestartFunction:
 
 #Region "---------------------------------------------------- Domme-WMP -------------------------------------------------------"
 
-	Private Sub DomWMP_PlayStateChange(sender As Object, e As AxWMPLib._WMPOCXEvents_PlayStateChangeEvent) Handles DomWMP.PlayStateChange
+	'Linux Incompatible
+	'Private Sub DomWMP_PlayStateChange(sender As Object, e As AxWMPLib._WMPOCXEvents_PlayStateChangeEvent)
 
 
-		If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
-			If FrmSettings.CBMuteMedia.Checked = True Then
-				DomWMP.settings.mute = True
-			End If
-		End If
+	'	If (DomWMP.playState = WMPLib.WMPPlayState.wmppsPlaying) Then
+	'		If FrmSettings.CBMuteMedia.Checked = True Then
+	'			DomWMP.settings.mute = True
+	'		End If
+	'	End If
 
 
-		If (DomWMP.playState = WMPLib.WMPPlayState.wmppsStopped) Then
-			'Debug.Print("WMP Stopped Called")
+	'	If (DomWMP.playState = WMPLib.WMPPlayState.wmppsStopped) Then
+	'		'Debug.Print("WMP Stopped Called")
 
-			VideoTimer.Stop()
+	'		VideoTimer.Stop()
 
-			ssh.EdgeVideo = False
-			ssh.YesVideo = False
-			ssh.NoVideo_Mode = False
-			ssh.CameVideo = False
-			ssh.RuinedVideo = False
+	'		ssh.EdgeVideo = False
+	'		ssh.YesVideo = False
+	'		ssh.NoVideo_Mode = False
+	'		ssh.CameVideo = False
+	'		ssh.RuinedVideo = False
 
-			DomWMP.currentPlaylist.clear()
-
-
-			If ssh.CensorshipGame = True Then
-				CensorshipTimer.Stop()
-				CensorshipBar.Visible = False
-				ssh.CensorshipGame = False
-				ssh.VideoTease = False
-
-				If ssh.RandomizerVideoTease = True Then
-					ScriptTimer.Stop()
-					ssh.SaidHello = False
-					ssh.RandomizerVideoTease = False
-					StopEverything()
-					Return
-				End If
-
-				RunFileText()
-			End If
-
-			If ssh.AvoidTheEdgeGame = True Then
-
-				ssh.TeaseVideo = False
-				ssh.AvoidTheEdgeGame = False
-				ssh.AvoidTheEdgeStroking = False
-				AvoidTheEdgeTaunts.Stop()
-				ssh.VideoTease = False
-				ssh.SubStroking = False
+	'		DomWMP.currentPlaylist.clear()
 
 
-				Debug.Print("TempStrokeTauntVal = " & ssh.TempStrokeTauntVal)
-				Debug.Print("TempFileText = " & ssh.TempFileText)
+	'		If ssh.CensorshipGame = True Then
+	'			CensorshipTimer.Stop()
+	'			CensorshipBar.Visible = False
+	'			ssh.CensorshipGame = False
+	'			ssh.VideoTease = False
+
+	'			If ssh.RandomizerVideoTease = True Then
+	'				ScriptTimer.Stop()
+	'				ssh.SaidHello = False
+	'				ssh.RandomizerVideoTease = False
+	'				StopEverything()
+	'				Return
+	'			End If
+
+	'			RunFileText()
+	'		End If
+
+	'		If ssh.AvoidTheEdgeGame = True Then
+
+	'			ssh.TeaseVideo = False
+	'			ssh.AvoidTheEdgeGame = False
+	'			ssh.AvoidTheEdgeStroking = False
+	'			AvoidTheEdgeTaunts.Stop()
+	'			ssh.VideoTease = False
+	'			ssh.SubStroking = False
 
 
-				If ssh.RandomizerVideoTease = True Then
-					ScriptTimer.Stop()
-					ssh.SaidHello = False
-					ssh.RandomizerVideoTease = False
-					StopEverything()
-					Return
-				End If
-
-				ssh.StrokeTauntVal = ssh.TempStrokeTauntVal
-				ssh.FileText = ssh.TempFileText
-
-				ssh.ScriptTick = 2
-				ScriptTimer.Start()
-
-				'RunFileText()
+	'			Debug.Print("TempStrokeTauntVal = " & ssh.TempStrokeTauntVal)
+	'			Debug.Print("TempFileText = " & ssh.TempFileText)
 
 
+	'			If ssh.RandomizerVideoTease = True Then
+	'				ScriptTimer.Stop()
+	'				ssh.SaidHello = False
+	'				ssh.RandomizerVideoTease = False
+	'				StopEverything()
+	'				Return
+	'			End If
 
+	'			ssh.StrokeTauntVal = ssh.TempStrokeTauntVal
+	'			ssh.FileText = ssh.TempFileText
 
-				'AvoidTheEdge.Stop()
-				'AvoidTheEdgeGame = False
-				'SkipGotoLine = True
-				'If AvoidTheEdgeTimerTick < 1 Then
-				'FileGoto = "(AvoidTheEdge Video Stop)"
-				'Else
-				'   FileGoto = "(AvoidTheEdge Video Continue)"
-				'End If
-				'GetGoto()
-				'RunFileText()
-			End If
+	'			ssh.ScriptTick = 2
+	'			ScriptTimer.Start()
 
-			If ssh.RLGLGame = True Then
-				RLGLTimer.Stop()
-				RLGLTauntTimer.Stop()
-				ssh.RLGLGame = False
-				ssh.VideoTease = False
-				ssh.SubStroking = False
-
-
-				If ssh.RandomizerVideoTease = True Then
-					ScriptTimer.Stop()
-					ssh.SaidHello = False
-					ssh.RandomizerVideoTease = False
-					StopEverything()
-					Return
-				End If
-
-				ssh.ScriptTick = 1
-				ScriptTimer.Start()
-
-				Return
-			End If
-
-
-			If ssh.TeaseVideo = True Then
-				ssh.TeaseVideo = False
-				DomWMP.Ctlcontrols.pause()
-				RunFileText()
-			End If
-
-
-			If ssh.LockVideo = False Then
-				mainPictureBox.Visible = True
-				DomWMP.Visible = False
-			End If
-
-
-		End If
-
-	End Sub
-
-	Private Sub WMPTimer_Tick(sender As System.Object, e As System.EventArgs) Handles WMPTimer.Tick
-
-
-		If DomWMP.currentPlaylist.count <> 0 Then
-			Try
-				Dim VideoLength As Integer = DomWMP.currentMedia.duration
-				Dim VideoRemaining As Integer = Math.Floor(DomWMP.currentMedia.duration - DomWMP.Ctlcontrols.currentPosition)
-
-				Debug.Print("Video Length = " & VideoLength)
-				Debug.Print("Video Remaining = " & VideoRemaining)
-			Catch
-			End Try
-		End If
+	'			'RunFileText()
 
 
 
 
+	'			'AvoidTheEdge.Stop()
+	'			'AvoidTheEdgeGame = False
+	'			'SkipGotoLine = True
+	'			'If AvoidTheEdgeTimerTick < 1 Then
+	'			'FileGoto = "(AvoidTheEdge Video Stop)"
+	'			'Else
+	'			'   FileGoto = "(AvoidTheEdge Video Continue)"
+	'			'End If
+	'			'GetGoto()
+	'			'RunFileText()
+	'		End If
 
-		If ssh.DomTypeCheck = True Or DomWMP.playState = WMPLib.WMPPlayState.wmppsStopped Or DomWMP.playState = WMPLib.WMPPlayState.wmppsPaused Then Return
-
-		'Debug.Print("New movie loaded: " & DomWMP.URL.ToString)
-
-		ssh.VidFile = Path.GetFileName(DomWMP.URL.ToString)
-
-		Dim VidSplit As String() = ssh.VidFile.Split(".")
-		ssh.VidFile = ""
-		For i As Integer = 0 To VidSplit.Count - 2
-			ssh.VidFile = ssh.VidFile + VidSplit(i)
-		Next
-		'Debug.Print(VidFile)
-		If ssh.VidFile = "" Then Exit Sub
-		If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & ssh.VidFile & ".txt") Then
-			Dim SubCheck As String()
-			Dim PlayPos As Integer
-			Dim WMPPos As Integer = Math.Ceiling(DomWMP.Ctlcontrols.currentPosition)
-
-			Dim SubList As New List(Of String)
-			SubList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & ssh.VidFile & ".txt")
-
-			If Not SubList Is Nothing Then
-				For i As Integer = 0 To SubList.Count - 1
-					SubCheck = SubList(i).Split("]")
-					SubCheck(0) = SubCheck(0).Replace("[", "")
-					Dim SubCheck2 As String() = SubCheck(0).Split(":")
-
-					PlayPos = SubCheck2(0) * 3600
-					PlayPos += SubCheck2(1) * 60
-					PlayPos += SubCheck2(2)
-
-					If WMPPos = PlayPos Then
-						ssh.DomTask = SubCheck(1)
-						TypingDelayGeneric()
-						Debug.Print(SubList(i))
-					End If
-				Next
-			End If
-		End If
+	'		If ssh.RLGLGame = True Then
+	'			RLGLTimer.Stop()
+	'			RLGLTauntTimer.Stop()
+	'			ssh.RLGLGame = False
+	'			ssh.VideoTease = False
+	'			ssh.SubStroking = False
 
 
-	End Sub
+	'			If ssh.RandomizerVideoTease = True Then
+	'				ScriptTimer.Stop()
+	'				ssh.SaidHello = False
+	'				ssh.RandomizerVideoTease = False
+	'				StopEverything()
+	'				Return
+	'			End If
+
+	'			ssh.ScriptTick = 1
+	'			ScriptTimer.Start()
+
+	'			Return
+	'		End If
+
+
+	'		If ssh.TeaseVideo = True Then
+	'			ssh.TeaseVideo = False
+	'			DomWMP.Ctlcontrols.pause()
+	'			RunFileText()
+	'		End If
+
+
+	'		If ssh.LockVideo = False Then
+	'			mainPictureBox.Visible = True
+	'			DomWMP.Visible = False
+	'		End If
+
+
+	'	End If
+
+	'End Sub
+
+	'Linux Incompatible
+	'Private Sub WMPTimer_Tick(sender As System.Object, e As System.EventArgs) Handles WMPTimer.Tick
+
+
+	'	If DomWMP.currentPlaylist.count <> 0 Then
+	'		Try
+	'			Dim VideoLength As Integer = DomWMP.currentMedia.duration
+	'			Dim VideoRemaining As Integer = Math.Floor(DomWMP.currentMedia.duration - DomWMP.Ctlcontrols.currentPosition)
+
+	'			Debug.Print("Video Length = " & VideoLength)
+	'			Debug.Print("Video Remaining = " & VideoRemaining)
+	'		Catch
+	'		End Try
+	'	End If
+
+
+
+
+
+	'	If ssh.DomTypeCheck = True Or DomWMP.playState = WMPLib.WMPPlayState.wmppsStopped Or DomWMP.playState = WMPLib.WMPPlayState.wmppsPaused Then Return
+
+	'	'Debug.Print("New movie loaded: " & DomWMP.URL.ToString)
+
+	'	ssh.VidFile = Path.GetFileName(DomWMP.URL.ToString)
+
+	'	Dim VidSplit As String() = ssh.VidFile.Split(".")
+	'	ssh.VidFile = ""
+	'	For i As Integer = 0 To VidSplit.Count - 2
+	'		ssh.VidFile = ssh.VidFile + VidSplit(i)
+	'	Next
+	'	'Debug.Print(VidFile)
+	'	If ssh.VidFile = "" Then Exit Sub
+	'	If File.Exists(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & ssh.VidFile & ".txt") Then
+	'		Dim SubCheck As String()
+	'		Dim PlayPos As Integer
+	'		Dim WMPPos As Integer = Math.Ceiling(DomWMP.Ctlcontrols.currentPosition)
+
+	'		Dim SubList As New List(Of String)
+	'		SubList = Txt2List(Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Video\Scripts\" & ssh.VidFile & ".txt")
+
+	'		If Not SubList Is Nothing Then
+	'			For i As Integer = 0 To SubList.Count - 1
+	'				SubCheck = SubList(i).Split("]")
+	'				SubCheck(0) = SubCheck(0).Replace("[", "")
+	'				Dim SubCheck2 As String() = SubCheck(0).Split(":")
+
+	'				PlayPos = SubCheck2(0) * 3600
+	'				PlayPos += SubCheck2(1) * 60
+	'				PlayPos += SubCheck2(2)
+
+	'				If WMPPos = PlayPos Then
+	'					ssh.DomTask = SubCheck(1)
+	'					TypingDelayGeneric()
+	'					Debug.Print(SubList(i))
+	'				End If
+	'			Next
+	'		End If
+	'	End If
+
+
+	'End Sub
 
 #End Region 'Domme-WMP
 
@@ -19998,18 +20040,19 @@ restartInstantly:
 	''' <exception cref="exception">Rethrows all exceptions to catcher, as long sender is nothing.</exception>
 	Private Sub VideoJump2Random(sender As System.Object, e As System.EventArgs) Handles Button12.Click
 		Try
-			If DomWMP.currentPlaylist.count = 0 Then Throw New Exception("No Video playing - can't jump.")
+			'Linux Incompatible
+			'If DomWMP.currentPlaylist.count = 0 Then Throw New Exception("No Video playing - can't jump.")
 
-			Dim VideoLength As Integer = DomWMP.currentMedia.duration
-			Dim VidLow As Integer = VideoLength * 0.4
-			Dim VidHigh As Integer = VideoLength * 0.9
-			Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
+			'Dim VideoLength As Integer = DomWMP.currentMedia.duration
+			'Dim VidLow As Integer = VideoLength * 0.4
+			'Dim VidHigh As Integer = VideoLength * 0.9
+			'Dim VidPoint As Integer = ssh.randomizer.Next(VidLow, VidHigh)
 
-			Debug.Print("VidLow = " & VidLow)
-			Debug.Print("VidHigh = " & VidHigh)
-			Debug.Print("VidPoint = " & VidPoint)
+			'Debug.Print("VidLow = " & VidLow)
+			'Debug.Print("VidHigh = " & VidHigh)
+			'Debug.Print("VidPoint = " & VidPoint)
 
-			DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
+			'DomWMP.Ctlcontrols.currentPosition = VideoLength - VidPoint
 		Catch ex As Exception
 			'▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨▨
 			'                                            All Errors
@@ -20191,7 +20234,8 @@ restartInstantly:
 			ssh.ScriptTick = 1
 			ScriptTimer.Start()
 			Dim HypnoTrack As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Hypnotic Guide\" & ComboBoxHypnoGenTrack.SelectedItem
-			If File.Exists(HypnoTrack) Then DomWMP.URL = HypnoTrack
+			'Linux Incompatible
+			'If File.Exists(HypnoTrack) Then DomWMP.URL = HypnoTrack
 			ssh.HypnoGen = True
 			ssh.AFK = True
 			ssh.SaidHello = True
@@ -20202,7 +20246,8 @@ restartInstantly:
 
 			mciSendString("CLOSE Speech1", String.Empty, 0, 0)
 			mciSendString("CLOSE Echo1", String.Empty, 0, 0)
-			DomWMP.Ctlcontrols.stop()
+			'Linux Incompatible
+			'DomWMP.Ctlcontrols.stop()
 
 			ScriptTimer.Stop()
 			ssh.StrokeTauntVal = -1
@@ -20572,7 +20617,8 @@ playLoop:
 
 		If ssh.VideoTick < 1 Then
 			VideoTimer.Stop()
-			DomWMP.Ctlcontrols.stop()
+			'Linux Incompatible
+			'DomWMP.Ctlcontrols.stop()
 		End If
 
 
