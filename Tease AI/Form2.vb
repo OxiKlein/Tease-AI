@@ -9893,13 +9893,11 @@ checkFolder:
 	End Sub
 
 	Private Sub SliderVVolume_Scroll(sender As System.Object, e As System.EventArgs) Handles SliderVVolume.Scroll
-		Form1.synth.Volume = SliderVVolume.Value
-		Form1.synth2.Volume = SliderVVolume.Value
+		Debug.Print("Removed TTS")
 		LBLVVolume.Text = SliderVVolume.Value
 	End Sub
 	Private Sub SliderVRate_Scroll(sender As System.Object, e As System.EventArgs) Handles SliderVRate.Scroll
-		Form1.synth.Rate = SliderVRate.Value
-		Form1.synth2.Rate = SliderVRate.Value
+		Debug.Print("Removed TTS")
 		LBLVRate.Text = SliderVRate.Value
 	End Sub
 

@@ -3,8 +3,6 @@ Imports System.IO
 Imports System.Text
 Imports System.Threading
 Imports System.Runtime.InteropServices
-Imports System.Speech.Synthesis
-Imports System.Speech.AudioFormat
 Imports System.Drawing.Drawing2D
 Imports System.Text.RegularExpressions
 
@@ -111,8 +109,6 @@ Public Class Form1
 	End Property
 #End Region ' StrokePace
 
-	Public synth As New SpeechSynthesizer
-	Public synth2 As New SpeechSynthesizer
 
 
 	Public LazyEdit1 As Boolean
@@ -5343,34 +5339,7 @@ DommeSlideshowFallback:
 				If FrmSettings.TTSCheckBox.Checked = True _
 				And TTSVoice <> "No voices installed" _
 				And ssh.DomTask <> "" Then
-					Debug.Print(ssh.DomTask)
-					ssh.DomTask = StripFormat(ssh.DomTask)
-
-					mciSendString("CLOSE Speech1", String.Empty, 0, 0)
-					mciSendString("CLOSE Echo1", String.Empty, 0, 0)
-
-					Dim SpeechDir As String = Application.StartupPath & "\Scripts\" & dompersonalitycombobox.Text & "\Apps\Hypnotic Guide\TempWav.wav"
-
-					synth2.Volume = TTSvolume
-					synth2.Rate = TTSrate
-					synth2.SelectVoice(TTSVoice)
-					synth2.SetOutputToWaveFile(SpeechDir, New SpeechAudioFormatInfo(32000, AudioBitsPerSample.Sixteen, AudioChannel.Mono))
-					synth2.Speak(ssh.DomTask)
-					synth2.SetOutputToNull()
-
-					SpeechDir = GetShortPathName(SpeechDir)
-
-					mciSendString("OPEN " & SpeechDir & " TYPE WAVEAUDIO ALIAS Speech1", String.Empty, 0, 0)
-					mciSendString("PLAY Speech1 FROM 0", String.Empty, 0, 0)
-
-
-
-					If CBHypnoGenPhase.Checked And ssh.HypnoGen = True Then
-						Delay(0.4)
-						mciSendString("OPEN " & SpeechDir & " TYPE WAVEAUDIO ALIAS Echo1", String.Empty, 0, 0)
-						mciSendString("PLAY Echo1 FROM 0", String.Empty, 0, 0)
-					End If
-
+					Debug.Print("Removed TTS")
 				End If
 
 
@@ -6034,11 +6003,7 @@ DommeSlideshowFallback:
 				If FrmSettings.TTSCheckBox.Checked = True _
 				And TTSVoice <> "No voices installed" _
 				And ssh.DomChat <> "" Then
-					ssh.DomChat = StripFormat(ssh.DomChat)
-					synth.Volume = TTSvolume
-					synth.Rate = TTSrate
-					synth.SelectVoice(TTSVoice)
-					synth.Speak(ssh.DomChat)
+					Debug.Print("Removed TTS")
 				End If
 
 
