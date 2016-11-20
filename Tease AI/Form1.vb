@@ -453,7 +453,7 @@ retryit:
 			If My.Settings.CBGlitterFeedOff Then
 				My.Settings.CBGlitterFeed = False
 				My.Settings.CBGlitterFeedScripts = False
-			ElseIf My.Settings.CBGlitterFeed
+			ElseIf My.Settings.CBGlitterFeed Then
 				' No need to unset My.Settings.CBGlitterFeedOff. 
 				' If it would be true, this branch Is unreachable
 				My.Settings.CBGlitterFeedScripts = False
@@ -1129,7 +1129,7 @@ retryit:
 
 			If b = MsgBoxResult.Abort Then
 				Process.GetCurrentProcess().Kill()
-			ElseIf b = MsgBoxResult.Retry
+			ElseIf b = MsgBoxResult.Retry Then
 				GoTo retryit
 			End If
 

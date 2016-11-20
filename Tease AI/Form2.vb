@@ -82,18 +82,19 @@ Public Class FrmSettings
 		FrmSplash.Refresh()
 
 
-		Dim oSpeech As New System.Speech.Synthesis.SpeechSynthesizer()
-		Dim installedVoices As System.Collections.ObjectModel.
-			ReadOnlyCollection(Of System.Speech.Synthesis.InstalledVoice) _
-			= oSpeech.GetInstalledVoices
+		'Linux Incompatible
+		'Dim oSpeech As New System.Speech.Synthesis.SpeechSynthesizer()
+		'Dim installedVoices As System.Collections.ObjectModel.
+		'	ReadOnlyCollection(Of System.Speech.Synthesis.InstalledVoice) _
+		'	= oSpeech.GetInstalledVoices
 
-		Dim names(installedVoices.Count - 1) As String
-		For i As Integer = 0 To installedVoices.Count - 1
-			names(i) = installedVoices(i).VoiceInfo.Name
-			Debug.Print("Name = " & names(i))
-		Next
+		'Dim names(installedVoices.Count - 1) As String
+		'For i As Integer = 0 To installedVoices.Count - 1
+		'	names(i) = installedVoices(i).VoiceInfo.Name
+		'	Debug.Print("Name = " & names(i))
+		'Next
 
-		oSpeech.Dispose()
+		'oSpeech.Dispose()
 
 
 
@@ -190,22 +191,23 @@ Public Class FrmSettings
 		FrmSplash.LBLSplash.Text = "Populating available voices..."
 		FrmSplash.Refresh()
 
-		Dim voicecheck As Integer
-		'Dim voices = Fringe.GetInstalledVoices()
-		For Each v As InstalledVoice In installedVoices
-			Debug.Print("Voice " & v.ToString())
-			voicecheck += 1
-			TTSComboBox.Items.Add(v.VoiceInfo.Name)
-			TTSComboBox.Text = v.VoiceInfo.Name
-		Next
-		If voicecheck = 0 Then
-			TTSComboBox.Text = "No voices installed"
-			TTSComboBox.Enabled = False
-			TTSCheckBox.Checked = False
-			TTSCheckBox.Enabled = False
-		End If
+		'Linux Incompatible
+		'Dim voicecheck As Integer
+		''Dim voices = Fringe.GetInstalledVoices()
+		'For Each v As InstalledVoice In installedVoices
+		'	Debug.Print("Voice " & v.ToString())
+		'	voicecheck += 1
+		'	TTSComboBox.Items.Add(v.VoiceInfo.Name)
+		'	TTSComboBox.Text = v.VoiceInfo.Name
+		'Next
+		'If voicecheck = 0 Then
+		'	TTSComboBox.Text = "No voices installed"
+		'	TTSComboBox.Enabled = False
+		'	TTSCheckBox.Checked = False
+		'	TTSCheckBox.Enabled = False
+		'End If
 
-		Debug.Print("Voicecheck = " & voicecheck)
+		'Debug.Print("Voicecheck = " & voicecheck)
 
 
 		FrmSplash.PBSplash.Value += 1
